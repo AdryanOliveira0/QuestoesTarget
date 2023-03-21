@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
 <body>
     <h1>Análise de Faturamento</h1>
     <p>valores diários de faturamento:</p>
-    <ul id="billingValues">
+    <ul id="faturamentoValores">
       <li>dia 1: 22174.1666</li>
       <li>dia 2: 24537.6698</li>
       <li>dia 3: 26139.6134</li>
@@ -42,31 +42,31 @@
       <li>dia 30: 8414.61</li>
     </ul>
     <p>O menor valor de faturamento ocorrido em um dia do mês é:</p>
-    <div id="lowestBilling"></div>
+    <div id="menorFaturamento"></div>
     <p>O maior valor de faturamento ocorrido em um dia do mês é:</p>
-    <div id="highestBilling"></div>
+    <div id="maiorFaturamento"></div>
     <p>Número de dias no mês em que o valor de faturamento diário foi superior à média mensal:</p>
-    <div id="aboveAverageDays"></div>
+    <div id="maiorMedia"></div>
     
     <script>
       
-      const billingValues = [22174.1666, 24537.6698, 26139.6134, 26742.6612, 42889.2258, 46251.174, 11191.4722, 3847.4823, 373.7838, 2659.7563, 48924.2448, 18419.2614, 
+      const faturamentoValores = [22174.1666, 24537.6698, 26139.6134, 26742.6612, 42889.2258, 46251.174, 11191.4722, 3847.4823, 373.7838, 2659.7563, 48924.2448, 18419.2614, 
         35240.1826, 43829.1667, 18235.6852, 4355.0662, 13327.1025, 25681.8318, 1718.1221,13220.495, 8414.61];
       
       // Calcular o menor valor de faturamento ocorrido em um dia do mês
-      const lowestBilling = Math.min(...billingValues);
-      document.getElementById('lowestBilling').textContent = lowestBilling;
+      const menorFaturamento = Math.min(...faturamentoValores);
+      document.getElementById('menorFaturamento').textContent = menorFaturamento;
       
       // Calcular o maior valor de faturamento ocorrido em um dia do mês
-      const highestBilling = Math.max(...billingValues);
-      document.getElementById('highestBilling').textContent = highestBilling;
+      const maiorFaturamento = Math.max(...faturamentoValores);
+      document.getElementById('maiorFaturamento').textContent = maiorFaturamento;
       
       // Calcular o valor médio do faturamento mensal
-      const monthlyAverage = billingValues.reduce((acc, curr) => acc + curr, 0) / billingValues.length;
+      const mediaMensal = faturamentoValores.reduce((acc, curr) => acc + curr, 0) / faturamentoValores.length;
       
       // Calcular o número de dias no mês em que o valor de faturamento diário foi superior à média mensal
-      const aboveAverageDays = billingValues.filter(value => value > monthlyAverage).length;
-      document.getElementById('aboveAverageDays').textContent = aboveAverageDays;
+      const maiorMedia = faturamentoValores.filter(value => value > mediaMensal).length;
+      document.getElementById('maiorMedia').textContent = maiorMedia;
     </script>
   
 </body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora de porcentagem de representação de estado</h1>
+    <table>
+      <tr>
+        <th>Estado</th>
+        <th>Valor de Faturamento Mensal (BRL)</th>
+        <th>Porcentagem de Representação</th>
+      </tr>
+      <tr>
+        <td>SP</td>
+        <td>67,836.43</td>
+        <td id="spPorcentagem"></td>
+      </tr>
+      <tr>
+        <td>RJ</td>
+        <td>36,678.66</td>
+        <td id="rjPorcentagem"></td>
+      </tr>
+      <tr>
+        <td>MG</td>
+        <td>29,229.88</td>
+        <td id="mgPorcentagem"></td>
+      </tr>
+      <tr>
+        <td>ES</td>
+        <td>27,165.48</td>
+        <td id="esPorcentagem"></td>
+      </tr>
+      <tr>
+        <td>Outros</td>
+        <td>19,849.53</td>
+        <td id="outrosPorcentagem"></td>
+      </tr>
+    </table>
+
+    <script>
+      const faturamentoMensal = {
+        SP: 67836.43,
+        RJ: 36678.66,
+        MG: 29229.88,
+        ES: 27165.48,
+        outros: 19849.53
+      };
+
+      const faturamentoMensalTotal = Object.values(faturamentoMensal).reduce((acc, value) => acc + value);
+
+      for (const [state, value] of Object.entries(faturamentoMensal)) {
+        const Porcentagem = ((value / faturamentoMensalTotal) * 100).toFixed(2);
+        document.getElementById(`${state.toLowerCase()}Porcentagem`).textContent = `${Porcentagem}%`;
+      }
+    </script>
+</body>
+</html>
