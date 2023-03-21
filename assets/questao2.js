@@ -6,7 +6,7 @@ function checkFibonacci() {
 
   if (num === fib1 || num === fib2) {
     isFibonacci = true;
-  }
+  } 
 
   while (fib2 <= num) {
     let temp = fib2;
@@ -25,3 +25,4 @@ function checkFibonacci() {
     result.innerText = `${num} Não faz parte da sequência Fibonacci.`;
   }
 }
+

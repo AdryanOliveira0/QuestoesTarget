@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Análise de Faturamento</h1>
+    <p>valores diários de faturamento:</p>
+    <ul id="billingValues">
+      <li>dia 1: 22174.1666</li>
+      <li>dia 2: 24537.6698</li>
+      <li>dia 3: 26139.6134</li>
+      <li>dia 4: 0.0</li>
+      <li>dia 5: 0.0</li>
+      <li>dia 6: 26742.6612</li>
+      <li>dia 7: 0.0</li>
+      <li>dia 8: 42889.2258</li>
+      <li>dia 9: 46251.174</li>
+      <li>dia 10: 11191.4722</li>
+      <li>dia 11: 0.0</li>
+      <li>dia 12: 0.0</li>
+      <li>dia 13: 3847.4823</li>
+      <li>dia 14: 373.7838</li>
+      <li>dia 15: 2659.7563</li>
+      <li>dia 16: 48924.2448</li>
+      <li>dia 17: 18419.2614</li>
+      <li>dia 18: 0.0</li>
+      <li>dia 19: 0.0</li>
+      <li>dia 20: 35240.1826</li>
+      <li>dia 21: 43829.1667</li>
+      <li>dia 22: 18235.6852</li>
+      <li>dia 23: 4355.0662</li>
+      <li>dia 24: 13327.1025</li>
+      <li>dia 25: 0.0</li>
+      <li>dia 26: 0.0</li>
+      <li>dia 27: 25681.8318</li>
+      <li>dia 28: 1718.1221</li>
+      <li>dia 29: 13220.495</li>
+      <li>dia 30: 8414.61</li>
+    </ul>
+    <p>O menor valor de faturamento ocorrido em um dia do mês é:</p>
+    <div id="lowestBilling"></div>
+    <p>O maior valor de faturamento ocorrido em um dia do mês é:</p>
+    <div id="highestBilling"></div>
+    <p>Número de dias no mês em que o valor de faturamento diário foi superior à média mensal:</p>
+    <div id="aboveAverageDays"></div>
+    
+    <script>
+      
+      const billingValues = [22174.1666, 24537.6698, 26139.6134, 26742.6612, 42889.2258, 46251.174, 11191.4722, 3847.4823, 373.7838, 2659.7563, 48924.2448, 18419.2614, 
+        35240.1826, 43829.1667, 18235.6852, 4355.0662, 13327.1025, 25681.8318, 1718.1221,13220.495, 8414.61];
+      
+      // Calcular o menor valor de faturamento ocorrido em um dia do mês
+      const lowestBilling = Math.min(...billingValues);
+      document.getElementById('lowestBilling').textContent = lowestBilling;
+      
+      // Calcular o maior valor de faturamento ocorrido em um dia do mês
+      const highestBilling = Math.max(...billingValues);
+      document.getElementById('highestBilling').textContent = highestBilling;
+      
+      // Calcular o valor médio do faturamento mensal
+      const monthlyAverage = billingValues.reduce((acc, curr) => acc + curr, 0) / billingValues.length;
+      
+      // Calcular o número de dias no mês em que o valor de faturamento diário foi superior à média mensal
+      const aboveAverageDays = billingValues.filter(value => value > monthlyAverage).length;
+      document.getElementById('aboveAverageDays').textContent = aboveAverageDays;
+    </script>
+  
+</body>
+</html>
